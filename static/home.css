@@ -1,0 +1,181 @@
+    /* ontainer {
+            background-color: #f2f2f2;
+        }
+
+      
+        form {
+            animation: fadeIn 1s ease;
+        }
+
+       
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        label {
+            color: #555;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="datetime-local"],
+        select {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 10px;
+            background-color: #f7f7f7;
+            color: #555;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="datetime-local"]:hover,
+        select:hover {
+            background-color: #f2f2f2;
+        }
+
+        input[type="datetime-local"]:focus,
+        select:focus {
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        } */
+    /* Style the form input when it's in focus */
+
+    .container {
+        background-color: #f2f2f2;
+    }
+
+    /* Add some animation to the form */
+
+    form {
+        animation: fadeIn 1s ease;
+    }
+
+    /* Define the keyframes for the animation */
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Style the submit button */
+
+    button[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Add a hover effect to the submit button */
+
+    button[type="submit"]:hover {
+        background-color: #3e8e41;
+    }
+
+    /* Style the form labels */
+
+    label {
+        color: #555;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    /* Style the form inputs */
+
+    input[type="datetime-local"],
+    select {
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 10px;
+        background-color: #f7f7f7;
+        color: #555;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Add a hover effect to the form inputs */
+
+    input[type="datetime-local"]:hover,
+    select:hover {
+        background-color: #f2f2f2;
+    }
+
+    /* Style the form input when it's in focus */
+
+    input[type="datetime-local"]:focus,
+    select:focus {
+        background-color: #fff;
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    }
+
+    /* Define the keyframes for the rainbow animation */
+
+    #heading {
+        animation: rainbow 10s infinite;
+        background-color: #cbc7c7;
+        text-align: center;
+    }
+
+    @keyframes rainbow {
+        0% {
+            color: violet;
+        }
+
+        16.67% {
+            color: indigo;
+        }
+
+        33.33% {
+            color: blue;
+        }
+
+        50% {
+            color: green;
+        }
+
+        66.67% {
+            color: yellow;
+        }
+
+        83.33% {
+            color: orange;
+        }
+
+        100% {
+            color: red;
+        }
+    }
+
+    button[type="submit"] {
+        display: block;
+        margin: 0 auto;
+    }

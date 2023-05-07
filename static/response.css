@@ -1,0 +1,141 @@
+h1,
+h2 {
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.card {
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #ccc;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+h1,
+h2 {
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.card {
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #ccc;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.input {
+    background-color: #fff;
+    border: none;
+}
+
+.output {
+    background-color: #f2f2f2;
+    border: none;
+}
+
+.output h2 {
+    color: #333;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card-text {
+    font-size: 18px;
+    color: #666;
+}
+
+.card-text strong {
+    color: #333;
+    font-weight: bold;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.card {
+    margin-top: 30px;
+    border: 2px solid #3c3c3c;
+    box-shadow: 0 0 10px #3c3c3c;
+    padding: 20px;
+    animation: slide-up 1s ease;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-text {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #3c3c3c;
+    margin-bottom: 30px;
+}
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.input.card,
+.output.card {
+    background-color: #f7f7f7;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.input.card h2,
+.output.card h2 {
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.input.card p.card-text,
+.output.card p.card-text {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.output.card {
+    background-color: #71e675;
+    color: white;
+}
+
+.output.card p.card-text {
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}

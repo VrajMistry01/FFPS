@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flight Price Prediction</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <link rel="stylesheet" href="static\style.css">
+    <style>
+        /* Define the animation */
+        
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Apply the animation to the elements */
+        
+        .fade-in {
+            opacity: 0;
+            animation: fade-in 1s ease-in-out forwards;
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            place-content: center;
+            align-items: center;
+        }
+        
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        
+        p {
+            margin: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top sticky-top">
+        <a class="navbar-brand" href="{{ url_for('index') }}"><i class="fas fa-plane" style="color: #1f5149;">{{
+                username }}</i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"></ul>
+            <h3 class="navbar-text">
+                <div id="clock"></div>
+            </h3>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center fade-in">
+                <h1>Welcome Fellow User!</h1>
+                <p>Are you a new or existing user?</p>
+                <div class="btn-group" role="group">
+                    <a href="{{url_for('register')}}" class="btn btn-primary mr-2">New User</a>
+                    <a href="{{url_for('login')}}" class="btn btn-secondary mr-2">Existing User</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container my-5 fade-in">
+        <h3 class="text-center mb-5">About FFPS</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <img src='data:image/jpeg;base64,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'
+                    class="img-fluid rounded" height="500px" width="500px">
+            </div>
+            <div class="col-md-6">
+                <p>A flight fare prediction system is a tool that helps users predict the price of airline tickets for a specific route and date. This system uses algorithms and historical data to analyze market trends and forecast future prices. The main
+                    advantage of using a flight fare prediction system is that it allows travelers to plan their trips in advance and make informed decisions about when to book their flights. By analyzing pricing trends and historical data, these systems
+                    can identify the best time to buy tickets, thus saving travelers money.</p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <div class="col-md-12">
+            <h4 class="text-center">Made by Vraj Mistry</h4>
+            <p>This website was created by Vraj Mistry.The goal of the website is to provide users with a flight price prediction tool that helps them make informed decisions about their travel plans.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <footer class="col-md-12 fade-in">
+        <h4 class="text-center">Contact Info</h4>
+        <p>Feel free to contact me</p>
+        <ul>
+            <p><i class="far fa-envelope mr-2"></i>Email:mistryvraj0001@gmail.com</p>
+            <p><i class="fab fa-instagram mr-2"></i>Instagram: _vraj___001</p>
+        </ul>
+    </footer>
+
+
+
+
+    <script src=" https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity=" sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin=" anonymous "></script>
+    <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js " integrity=" sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin=" anonymous "></script>
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js " integrity=" sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin=" anonymous "></script>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const clock = document.getElementById('clock');
+            clock.innerHTML = now.toLocaleTimeString();
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+
+</html>
